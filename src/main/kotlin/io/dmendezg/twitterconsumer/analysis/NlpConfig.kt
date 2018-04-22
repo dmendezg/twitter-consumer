@@ -4,7 +4,6 @@ import edu.stanford.nlp.ling.CoreAnnotations
 import edu.stanford.nlp.neural.rnn.RNNCoreAnnotations
 import edu.stanford.nlp.pipeline.StanfordCoreNLP
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations
-import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
 
 

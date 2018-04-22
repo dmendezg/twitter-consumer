@@ -40,7 +40,7 @@ class TwitterConfig {
 
         val hosebirdHosts = HttpHosts(Constants.STREAM_HOST)
         val hosebirdEndpoint = StatusesFilterEndpoint()
-        val terms = listOf("tweets", "api")
+        val terms = listOf("twitterapi", "#yolo", "@bosch", "@apple")
         hosebirdEndpoint.trackTerms(terms)
 
         val builder = ClientBuilder()
