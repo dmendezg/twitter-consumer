@@ -33,12 +33,14 @@ class TwitterConfig {
     }
 
     @Bean
-    fun config(oAuth1: OAuth1, msgQueue: LinkedBlockingQueue<String>): Client {
-        val eventQueue = LinkedBlockingQueue<Event>(1000)
+    fun config(
+        oAuth1: OAuth1,
+        msgQueue: LinkedBlockingQueue<String>
+    ): Client {
 
         val hosebirdHosts = HttpHosts(Constants.STREAM_HOST)
         val hosebirdEndpoint = StatusesFilterEndpoint()
-        val terms = listOf("Espana", "David", "twitter", "api")
+        val terms = listOf("tweets", "api")
         hosebirdEndpoint.trackTerms(terms)
 
         val builder = ClientBuilder()
@@ -47,7 +49,6 @@ class TwitterConfig {
             .authentication(oAuth1)
             .endpoint(hosebirdEndpoint)
             .processor(StringDelimitedProcessor(msgQueue))
-            .eventMessageQueue(eventQueue)
 
         return builder.build()
     }
